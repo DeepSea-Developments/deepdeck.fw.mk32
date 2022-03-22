@@ -116,6 +116,7 @@ uint8_t u8g2_esp32_i2c_byte_cb(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void 
 			}
 
 		    i2c_config_t conf;
+			conf.clk_flags = 0;
 		    conf.mode = I2C_MODE_MASTER;
 			ESP_LOGI(TAG, "sda_io_num %d", u8g2_esp32_hal.sda);
 		    conf.sda_io_num = u8g2_esp32_hal.sda;

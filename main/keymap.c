@@ -23,7 +23,7 @@ enum layer_holds {
 };
 
 // array to hold names of layouts for oled
-char default_layout_names[LAYERS][MAX_LAYOUT_NAME_LENGTH] = { "QWERTY", "NUM",
+char default_layout_names[LAYERS][MAX_LAYOUT_NAME_LENGTH] = { "MEDIA", "NUM",
 		  "Plugins",
 		};
 
@@ -72,43 +72,42 @@ uint16_t default_slave_encoder_map[LAYERS][ENCODER_SIZE] = {
 // Each keymap is represented by an array, with an array that points to all the keymaps  by order
 	 uint16_t _QWERTY[MATRIX_ROWS][KEYMAP_COLS]={
 
-			/* Qwerty
-			 * ,------------------------------------------------------------------------------------.
-			 * | Esc  |   Q  |   W  |   E   |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
-			 * |------+------+------+-------+------+-------------+------+------+------+------+------|
-			 * | Tab  |   A  |   S  |   D   |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
-			 * |------+------+------+-------+------+------|------+------+------+------+------+------|
-			 * | Shift|   Z  |   X  |   C   |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
-			 * |------+------+------+-------+------+------+------+------+------+------+------+------|
-			 * | Ctrl | GUI  |  Alt |Default|Lower |Space |Space |Raise | Left | Down |  Up  |Right |
-			 * `------------------------------------------------------------------------------------'
+			/* MEDIA
+			 * ,------------------------------------------.
+			 * |CALC  |  <<  |  <<  |  |>   |  >>  |RAISE |
+			 * |------+------+------+-------+------+------|
+			 * | Tab  |   A  |   S  |   D   |   F  |LOWER |
+			 * |------+------+------+-------+------+------|
+			 * | Shift|   Z  |   X  |   C   |   V  |   B  |
+			 * |------+------+------+-------+------+------|
+			 * | Ctrl | GUI  |  Alt |Default|Lower |Space |
+			 * `------------------------------------------'
 			 */
 
-			  {KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T },
-			  {KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G },
-			  {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B } ,
+			  {KC_CALC,  KC_Q,    KC_MPRV,    KC_MPLY,    KC_MNXT,    RAISE },
+			  {KC_INT1,  KC_LANG1,    KC_S,    KC_D,    KC_F,    LOWER },
+			  {KC_INT2, KC_LANG2,    KC_X,    KC_FN0,    KC_FN1,    KC_FN2 } ,
 			  {KC_LCTRL,KC_LGUI, KC_LALT, DEFAULT, NUM_H,   KC_SPC }
-
 	};
 
 	 uint16_t _NUM[MATRIX_ROWS][KEYMAP_COLS]={
 
-			 /* Nums
-			  * ,-----------------------------------------------------------------------------------.
-			  * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
-			  * |------+------+------+------+------+-------------+------+------+------+------+------|
-			  * | Del  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   -  |   =  |   [  |   ]  |  \   |
-			  * |------+------+------+------+------+------|------+------+------+------+------+------|
-			  * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO # |ISO / |Pg Up |Pg Dn |      |
-			  * |------+------+------+------+------+------+------+------+------+------+------+------|
-			  * |      |      |      |      |      |             |      |      |      |      |      |
-			  * `-----------------------------------------------------------------------------------'
-			  */
+		 	/* Nums
+			 * ,------------------------------------------.
+			 * |   1  |   2  |   3  |  |>   |  >>  |RAISE |
+			 * |------+------+------+-------+------+------|
+			 * |   4  |   5  |   6  |   +   |   -  |LOWER |
+			 * |------+------+------+-------+------+------|
+			 * |   7  |   8  |   9  |   *   |   /  | Vol+ |
+			 * |------+------+------+-------+------+------|
+			 * |   .  |   0  |  <-- | Enter |  GUI | Vol- |
+			 * `------------------------------------------'
+			 */
 
-			  {KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5 },
-			  {KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5 },
-			  {KC_LSFT, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11 } ,
-			  {KC_LCTRL,KC_LGUI, KC_LALT, DEFAULT, LOWER,   KC_SPC }
+			  {KC_1,       KC_2,          KC_3,    KC_MPLY,         KC_MNXT,        RAISE },
+			  {KC_4,       KC_5,          KC_6,    KC_KP_PLUS,      KC_KP_MINUS,    LOWER },
+			  {KC_7,       KC_8,          KC_9,    KC_KP_ASTERISK,  KC_KP_SLASH,    KC_AUDIO_VOL_UP },
+			  {KC_DOT,     KC_0,     KC_BSPACE,    KC_ENTER,        KC_LGUI,        KC_AUDIO_VOL_DOWN }
 
 	};
 
@@ -118,10 +117,14 @@ uint16_t default_slave_encoder_map[LAYERS][ENCODER_SIZE] = {
 				 * -----------------------------------------------------------------------------------------'
 				 */
 
-				  {PN_CLOSE,PN_LAYOUT,PN_TEST,    KC_E,    KC_R,    KC_T },
-				  {KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G },
-				  {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B } ,
-				  {KC_LCTRL,KC_LGUI, KC_LALT, DEFAULT, NUM_H,   KC_SPC }
+				//   {PN_CLOSE,PN_LAYOUT,PN_TEST,    KC_E,    KC_R,    KC_T },
+				//   {KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G },
+				//   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B } ,
+				//   {KC_LCTRL,KC_LGUI, KC_LALT, DEFAULT, NUM_H,   KC_SPC }
+				{KC_CALC,  KC_Q,    KC_MPRV,    KC_MPLY,    KC_MNXT,    RAISE },
+			  {KC_TAB,  KC_A,    KC_S,    KC_D,    KC_F,    LOWER },
+			  {KC_LSFT, KC_Z,    KC_X,    KC_FN0,    KC_FN1,    KC_FN2 } ,
+			  {KC_LCTRL,KC_LGUI, KC_LALT, DEFAULT, NUM_H,   KC_SPC }
 
 		};
  //Create an array that points to the various keymaps
