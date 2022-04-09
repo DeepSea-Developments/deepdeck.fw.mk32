@@ -46,7 +46,7 @@ static void ping_on_ping_end(esp_ping_handle_t hdl, void *args)
     } else {
         ESP_LOGI(TAG_PING,"--- %s ping statistics ---",inet6_ntoa(*ip_2_ip6(&target_addr)));
     }
-    ESP_LOGI(TAG_PING,"%d packets transmitted, %d received, %d%% packet loss, time %dms, time gap %dms", transmitted, received, loss, total_time_ms,gap_time_ms);
+    ESP_LOGI(TAG_PING,"%d packets transmitted, %d received, %d%% pcket loss, time %dms, time gap %dms", transmitted, received, loss, total_time_ms,gap_time_ms);
     ping_results.total_time_ms = total_time_ms;
     ping_results.loss = loss;
     ping_results.avg_time_ms = gap_time_ms;
