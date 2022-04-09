@@ -33,17 +33,17 @@ char default_layout_names[LAYERS][MAX_LAYOUT_NAME_LENGTH] = { "MEDIA", "NUM",
 
 #define MACROS_NUM 2
 enum custom_macros {
-	KC_CTRL_ALT_DELETE = MACRO_BASE_VAL, KC_ALT_F4,
+	KC_CTRL_SFT_M = MACRO_BASE_VAL, KC_ALT_TAB,
 };
 
 /*define what the macros do
  * important- make sure you you put the macros in the same order as the their enumeration
  */
 uint16_t macros[MACROS_NUM][MACRO_LEN] = {
-		// CTRL+ALT+DEL
-		{ KC_LCTRL, KC_LALT, KC_DEL },
-		//ALT +F4
-		{ KC_RALT, KC_LALT, KC_NO } };
+		// CTRL+SHT+M  TO MUTE IN DISCORD
+		{ KC_LCTRL, KC_LSFT, KC_M },
+		//ALT + TAB
+		{ KC_RALT, KC_TAB, KC_NO } };
 
 /*Encoder keys for each layer by order, and for each pad
  * First variable states what usage the encoder has
@@ -51,7 +51,7 @@ uint16_t macros[MACROS_NUM][MACRO_LEN] = {
 
 uint16_t default_encoder_map[LAYERS][ENCODER_SIZE] = {
 		// |VOL + | VOL - | MUTE |
-		{ MEDIA_ENCODER, KC_AUDIO_VOL_UP, KC_AUDIO_VOL_DOWN, KC_AUDIO_MUTE },
+		{ MEDIA_ENCODER, KC_AUDIO_VOL_DOWN, KC_AUDIO_VOL_UP, KC_AUDIO_MUTE },
 		// |Y+|Y-| LEFT CLICK|
 		{ MOUSE_ENCODER, KC_MS_UP, KC_MS_DOWN, KC_MS_BTN1 },
 
@@ -84,10 +84,10 @@ uint16_t default_slave_encoder_map[LAYERS][ENCODER_SIZE] = {
 			 * `------------------------------------------'
 			 */
 
-			  {KC_CALC,  KC_Q,    KC_MPRV,    KC_MPLY,    KC_MNXT,    RAISE },
-			  {KC_INT1,  KC_LANG1,    KC_S,    KC_D,    KC_F,    LOWER },
-			  {KC_INT2, KC_LANG2,    KC_X,    KC_FN0,    KC_FN1,    KC_FN2 } ,
-			  {KC_LCTRL,KC_LGUI, KC_LALT, DEFAULT, NUM_H,   KC_SPC }
+			  {KC_Q,  KC_W,    KC_E,    KC_R,    KC_MNXT,    KC_CTRL_SFT_M },
+			  {KC_A,  KC_S,    KC_D,    KC_F,    KC_F,    KC_ALT_TAB },
+			  {KC_Z, KC_X,    KC_C,    KC_V,    KC_FN1,    PN_LAYOUT } ,
+			  {KC_R,KC_T, KC_F, KC_G, KC_V,   PN_CLOSE }
 	};
 
 	 uint16_t _NUM[MATRIX_ROWS][KEYMAP_COLS]={
@@ -104,10 +104,10 @@ uint16_t default_slave_encoder_map[LAYERS][ENCODER_SIZE] = {
 			 * `------------------------------------------'
 			 */
 
-			  {KC_1,       KC_2,          KC_3,    KC_MPLY,         KC_MNXT,        RAISE },
-			  {KC_4,       KC_5,          KC_6,    KC_KP_PLUS,      KC_KP_MINUS,    LOWER },
-			  {KC_7,       KC_8,          KC_9,    KC_KP_ASTERISK,  KC_KP_SLASH,    KC_AUDIO_VOL_UP },
-			  {KC_DOT,     KC_0,     KC_BSPACE,    KC_ENTER,        KC_LGUI,        KC_AUDIO_VOL_DOWN }
+			  {KC_Q,  KC_W,    KC_E,    KC_R,    KC_MNXT,    RAISE },
+			  {KC_A,  KC_S,    KC_D,    KC_F,    KC_F,    LOWER },
+			  {KC_Z, KC_X,    KC_C,    KC_V,    KC_FN1,    KC_FN2 } ,
+			  {KC_R,KC_T, KC_F, KC_G, KC_V,   KC_SPC }
 
 	};
 

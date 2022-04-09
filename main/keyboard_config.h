@@ -39,8 +39,8 @@
 //Encoder definitions
 #define R_ENCODER // undefine if no rotary encoder is used
 //#define R_ENCODER_SLAVE // undefine if no rotary encoder is used on slave pad
-#define ENCODER_A_PIN GPIO_NUM_33 // encoder phase A pin
-#define ENCODER_B_PIN GPIO_NUM_32// encoder phase B pin
+#define ENCODER_A_PIN GPIO_NUM_32 // encoder phase A pin
+#define ENCODER_B_PIN GPIO_NUM_33// encoder phase B pin
 #define ENCODER_S_PIN GPIO_NUM_27// encoder switch pin
 
 //OLED Parameters
@@ -79,7 +79,7 @@
 #define MACRO_BASE_VAL 0x103
 #define LAYERS_BASE_VAL 0xFF
 
-#define ENCODER_SIZE 4
+#define ENCODER_SIZE 20
 #define MEDIA_ENCODER 0
 #define MOUSE_ENCODER 1
 #define KEY_ENCODER 2
